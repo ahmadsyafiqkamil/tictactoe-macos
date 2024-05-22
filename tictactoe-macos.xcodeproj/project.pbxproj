@@ -11,6 +11,9 @@
 		C13F0C3A2BFCB2BE0089DF1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F0C392BFCB2BE0089DF1D /* ContentView.swift */; };
 		C13F0C3C2BFCB2C00089DF1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13F0C3B2BFCB2C00089DF1D /* Assets.xcassets */; };
 		C13F0C3F2BFCB2C00089DF1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13F0C3E2BFCB2C00089DF1D /* Preview Assets.xcassets */; };
+		C13F0C492BFCB6470089DF1D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F0C482BFCB6470089DF1D /* CameraManager.swift */; };
+		C14237C92BFDA381007EE40F /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14237C82BFDA381007EE40F /* CameraView.swift */; };
+		C14237CB2BFDAA7F007EE40F /* tictactoe-model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C14237CA2BFDAA7F007EE40F /* tictactoe-model.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		C13F0C3B2BFCB2C00089DF1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C13F0C3E2BFCB2C00089DF1D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C13F0C402BFCB2C00089DF1D /* tictactoe_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tictactoe_macos.entitlements; sourceTree = "<group>"; };
+		C13F0C482BFCB6470089DF1D /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		C14237C82BFDA381007EE40F /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		C14237CA2BFDAA7F007EE40F /* tictactoe-model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "tictactoe-model.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +58,14 @@
 		C13F0C362BFCB2BE0089DF1D /* tictactoe-macos */ = {
 			isa = PBXGroup;
 			children = (
+				C14237CA2BFDAA7F007EE40F /* tictactoe-model.mlmodel */,
 				C13F0C372BFCB2BE0089DF1D /* tictactoe_macosApp.swift */,
 				C13F0C392BFCB2BE0089DF1D /* ContentView.swift */,
 				C13F0C3B2BFCB2C00089DF1D /* Assets.xcassets */,
 				C13F0C402BFCB2C00089DF1D /* tictactoe_macos.entitlements */,
 				C13F0C3D2BFCB2C00089DF1D /* Preview Content */,
+				C13F0C482BFCB6470089DF1D /* CameraManager.swift */,
+				C14237C82BFDA381007EE40F /* CameraView.swift */,
 			);
 			path = "tictactoe-macos";
 			sourceTree = "<group>";
@@ -140,7 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C13F0C3A2BFCB2BE0089DF1D /* ContentView.swift in Sources */,
+				C14237CB2BFDAA7F007EE40F /* tictactoe-model.mlmodel in Sources */,
+				C13F0C492BFCB6470089DF1D /* CameraManager.swift in Sources */,
 				C13F0C382BFCB2BE0089DF1D /* tictactoe_macosApp.swift in Sources */,
+				C14237C92BFDA381007EE40F /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +291,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "need access camera";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,6 +319,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "need access camera";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
