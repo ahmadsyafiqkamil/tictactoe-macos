@@ -7,26 +7,39 @@
 
 import SwiftUI
 import Cocoa
+import Vision
+import AVFoundation  // Pastikan untuk mengimpor AVFoundation jika CameraManager membutuhkannya
 
 struct CameraView: NSViewRepresentable {
-    typealias NSViewType = NSView
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+    
+    typealias NSViewType = NSView  // Ganti dengan subclass yang spesifik jika menggunakan tipe khusus
 
-    func makeNSView(context: Context) -> NSView {
-        let nsView = NSView()
+    @EnvironmentObject var coordinator: Coordinator
+
+    // Membuat NSView untuk representasi
+    func makeNSView(context: Context) -> NSViewType {
+        let view = NSView()  // Atau subclass spesifik dari NSView
         do {
-            let manager = try CameraManager(containerView: nsView)
-            context.coordinator.cameraManager = manager
-            manager.delegate = context.coordinator
+            let manager = try CameraManager(containerView: view)
+            self.coordinator.cameraManager = manager
+            manager.delegate = self.coordinator
             try manager.startSession()
         } catch {
             print("Camera error: \(error.localizedDescription)")
         }
-        return nsView
+        return view
     }
 
-    func updateNSView(_ nsView: NSView, context: Context) {}
+    // Update NSView saat terjadi perubahan data
+    func updateNSView(_ nsView: NSViewType, context: Context) {
+        // Update view jika diperlukan
+    }
 
-    static func dismantleNSView(_ nsView: NSView, coordinator: Coordinator) {
+    // Membersihkan atau menghentikan sesi saat view dibongkar
+    static func dismantleNSView(_ nsView: NSViewType, coordinator: Coordinator) {
         do {
             if let manager = coordinator.cameraManager {
                 try manager.stopSession()
@@ -35,18 +48,37 @@ struct CameraView: NSViewRepresentable {
             print("Camera error: \(error.localizedDescription)")
         }
     }
+}
 
-    func makeCoordinator() -> Coordinator {
-        Coordinator()
-    }
-
-    class Coordinator: NSObject, CameraManagerDelegate {
+extension CameraView {
+    class Coordinator: NSObject, CameraManagerDelegate, ObservableObject {
         var cameraManager: CameraManagerProtocol?
+        private let humanDetector = HumanDetector()
+        
+        @Published var detectedPeopleCount: Int = 0
+        @Published var detectedRectangles: [CGRect] = []
 
         func cameraManager(_ output: CameraCaptureOutput, didOutput sampleBuffer: CameraSampleBuffer, from connection: CameraCaptureConnection) {
-            // Handle the camera output here if needed
-            print(Date())
+            guard let sampleBuffer = sampleBuffer as? CMSampleBuffer else {
+                print("Failed to convert CameraSampleBuffer to CMSampleBuffer.")
+                return
+            }
+
+            humanDetector.detectHuman(in: sampleBuffer)
+            
+            DispatchQueue.main.async {
+                self.detectedPeopleCount = self.humanDetector.peopleCount
+                self.detectedRectangles = self.humanDetector.detectedRectangle
+            }
+            
+            print("Updated detectedPeopleCount: \(self.detectedPeopleCount)")
         }
     }
 }
+
+
+
+
+
+
 

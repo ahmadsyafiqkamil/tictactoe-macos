@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
-    private var cameraManager: CameraManagerProtocol!
+    @StateObject private var coordinator = CameraView.Coordinator()
+    
     var body: some View {
-        VStack {
+        ZStack {
             CameraView()
-                .frame(width: 640, height: 480)
+                .environmentObject(coordinator)
+                .onAppear {
+                    print("Camera View appeared.")
+                }
             
+            VStack {
+                Text("Detected People: \(coordinator.detectedPeopleCount)")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.black.opacity(0.7))
+                    .cornerRadius(10)
+                    .padding()
+                
+                Spacer()
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+
+
+
