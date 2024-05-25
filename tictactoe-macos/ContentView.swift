@@ -17,7 +17,6 @@ struct ContentView: View {
                 .onAppear {
                     print("Camera View appeared.")
                 }
-            
             VStack {
                 Text("Detected People: \(coordinator.detectedPeopleCount)")
                     .foregroundColor(.white)
@@ -26,8 +25,17 @@ struct ContentView: View {
                     .cornerRadius(10)
                     .padding()
                 
+                
+                Text("Detected Hand Pose: \(coordinator.detectedHandPose)")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.black.opacity(0.7))
+                    .cornerRadius(10)
+                    .padding()
+
                 Spacer()
             }
+
         }
     }
 }

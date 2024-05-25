@@ -54,9 +54,11 @@ extension CameraView {
     class Coordinator: NSObject, CameraManagerDelegate, ObservableObject {
         var cameraManager: CameraManagerProtocol?
         private let humanDetector = HumanDetector()
+        private let handPoseDetector = HandPoseDetector()
         
         @Published var detectedPeopleCount: Int = 0
         @Published var detectedRectangles: [CGRect] = []
+        @Published var detectedHandPose: String = ""
 
         func cameraManager(_ output: CameraCaptureOutput, didOutput sampleBuffer: CameraSampleBuffer, from connection: CameraCaptureConnection) {
             guard let sampleBuffer = sampleBuffer as? CMSampleBuffer else {
@@ -65,10 +67,12 @@ extension CameraView {
             }
 
             humanDetector.detectHuman(in: sampleBuffer)
+            handPoseDetector.detectHand(in: sampleBuffer)
             
             DispatchQueue.main.async {
                 self.detectedPeopleCount = self.humanDetector.peopleCount
                 self.detectedRectangles = self.humanDetector.detectedRectangle
+                self.detectedHandPose = self.handPoseDetector.labelPredict
             }
             
             print("Updated detectedPeopleCount: \(self.detectedPeopleCount)")

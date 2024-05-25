@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C11540F22C0131640050D630 /* HandPoseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11540F12C0131640050D630 /* HandPoseDetector.swift */; };
 		C13F0C382BFCB2BE0089DF1D /* tictactoe_macosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F0C372BFCB2BE0089DF1D /* tictactoe_macosApp.swift */; };
 		C13F0C3A2BFCB2BE0089DF1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F0C392BFCB2BE0089DF1D /* ContentView.swift */; };
 		C13F0C3C2BFCB2C00089DF1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13F0C3B2BFCB2C00089DF1D /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C11540F12C0131640050D630 /* HandPoseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseDetector.swift; sourceTree = "<group>"; };
 		C13F0C342BFCB2BE0089DF1D /* tictactoe-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tictactoe-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13F0C372BFCB2BE0089DF1D /* tictactoe_macosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tictactoe_macosApp.swift; sourceTree = "<group>"; };
 		C13F0C392BFCB2BE0089DF1D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				C13F0C482BFCB6470089DF1D /* CameraManager.swift */,
 				C14237C82BFDA381007EE40F /* CameraView.swift */,
 				C142BF852BFECFFA0093D46C /* HumanDetector.swift */,
+				C11540F12C0131640050D630 /* HandPoseDetector.swift */,
 			);
 			path = "tictactoe-macos";
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				C13F0C382BFCB2BE0089DF1D /* tictactoe_macosApp.swift in Sources */,
 				C14237C92BFDA381007EE40F /* CameraView.swift in Sources */,
 				C142BF862BFECFFA0093D46C /* HumanDetector.swift in Sources */,
+				C11540F22C0131640050D630 /* HandPoseDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
