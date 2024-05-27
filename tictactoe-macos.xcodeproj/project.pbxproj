@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C11540F22C0131640050D630 /* HandPoseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11540F12C0131640050D630 /* HandPoseDetector.swift */; };
+		C129970B2C028F720052B655 /* BenchmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129970A2C028F720052B655 /* BenchmarkView.swift */; };
+		C129970D2C028F800052B655 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129970C2C028F800052B655 /* GameView.swift */; };
 		C13F0C382BFCB2BE0089DF1D /* tictactoe_macosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F0C372BFCB2BE0089DF1D /* tictactoe_macosApp.swift */; };
 		C13F0C3A2BFCB2BE0089DF1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F0C392BFCB2BE0089DF1D /* ContentView.swift */; };
 		C13F0C3C2BFCB2C00089DF1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13F0C3B2BFCB2C00089DF1D /* Assets.xcassets */; };
@@ -16,10 +18,14 @@
 		C14237C92BFDA381007EE40F /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14237C82BFDA381007EE40F /* CameraView.swift */; };
 		C14237CB2BFDAA7F007EE40F /* tictactoe-model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C14237CA2BFDAA7F007EE40F /* tictactoe-model.mlmodel */; };
 		C142BF862BFECFFA0093D46C /* HumanDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C142BF852BFECFFA0093D46C /* HumanDetector.swift */; };
+		C1E3300E2C02DD5100596145 /* TicTacToeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E3300D2C02DD5100596145 /* TicTacToeView.swift */; };
+		C1E330102C02DDB100596145 /* CameraMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E3300F2C02DDB100596145 /* CameraMLView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C11540F12C0131640050D630 /* HandPoseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseDetector.swift; sourceTree = "<group>"; };
+		C129970A2C028F720052B655 /* BenchmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchmarkView.swift; sourceTree = "<group>"; };
+		C129970C2C028F800052B655 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		C13F0C342BFCB2BE0089DF1D /* tictactoe-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tictactoe-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13F0C372BFCB2BE0089DF1D /* tictactoe_macosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tictactoe_macosApp.swift; sourceTree = "<group>"; };
 		C13F0C392BFCB2BE0089DF1D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,6 +36,8 @@
 		C14237C82BFDA381007EE40F /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		C14237CA2BFDAA7F007EE40F /* tictactoe-model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "tictactoe-model.mlmodel"; sourceTree = "<group>"; };
 		C142BF852BFECFFA0093D46C /* HumanDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanDetector.swift; sourceTree = "<group>"; };
+		C1E3300D2C02DD5100596145 /* TicTacToeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeView.swift; sourceTree = "<group>"; };
+		C1E3300F2C02DDB100596145 /* CameraMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMLView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C11540FB2C0217980050D630 /* Machine Learning */ = {
+			isa = PBXGroup;
+			children = (
+				C14237CA2BFDAA7F007EE40F /* tictactoe-model.mlmodel */,
+				C142BF852BFECFFA0093D46C /* HumanDetector.swift */,
+				C11540F12C0131640050D630 /* HandPoseDetector.swift */,
+			);
+			path = "Machine Learning";
+			sourceTree = "<group>";
+		};
+		C11540FC2C0217A40050D630 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C13F0C482BFCB6470089DF1D /* CameraManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C11540FD2C0217B20050D630 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C13F0C392BFCB2BE0089DF1D /* ContentView.swift */,
+				C14237C82BFDA381007EE40F /* CameraView.swift */,
+				C129970A2C028F720052B655 /* BenchmarkView.swift */,
+				C129970C2C028F800052B655 /* GameView.swift */,
+				C1E3300D2C02DD5100596145 /* TicTacToeView.swift */,
+				C1E3300F2C02DDB100596145 /* CameraMLView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C13F0C2B2BFCB2BE0089DF1D = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +101,13 @@
 		C13F0C362BFCB2BE0089DF1D /* tictactoe-macos */ = {
 			isa = PBXGroup;
 			children = (
-				C14237CA2BFDAA7F007EE40F /* tictactoe-model.mlmodel */,
-				C13F0C372BFCB2BE0089DF1D /* tictactoe_macosApp.swift */,
-				C13F0C392BFCB2BE0089DF1D /* ContentView.swift */,
+				C11540FC2C0217A40050D630 /* Manager */,
+				C11540FB2C0217980050D630 /* Machine Learning */,
+				C11540FD2C0217B20050D630 /* View */,
 				C13F0C3B2BFCB2C00089DF1D /* Assets.xcassets */,
+				C13F0C372BFCB2BE0089DF1D /* tictactoe_macosApp.swift */,
 				C13F0C402BFCB2C00089DF1D /* tictactoe_macos.entitlements */,
 				C13F0C3D2BFCB2C00089DF1D /* Preview Content */,
-				C13F0C482BFCB6470089DF1D /* CameraManager.swift */,
-				C14237C82BFDA381007EE40F /* CameraView.swift */,
-				C142BF852BFECFFA0093D46C /* HumanDetector.swift */,
-				C11540F12C0131640050D630 /* HandPoseDetector.swift */,
 			);
 			path = "tictactoe-macos";
 			sourceTree = "<group>";
@@ -156,9 +192,13 @@
 			files = (
 				C13F0C3A2BFCB2BE0089DF1D /* ContentView.swift in Sources */,
 				C14237CB2BFDAA7F007EE40F /* tictactoe-model.mlmodel in Sources */,
+				C1E330102C02DDB100596145 /* CameraMLView.swift in Sources */,
 				C13F0C492BFCB6470089DF1D /* CameraManager.swift in Sources */,
 				C13F0C382BFCB2BE0089DF1D /* tictactoe_macosApp.swift in Sources */,
+				C129970D2C028F800052B655 /* GameView.swift in Sources */,
+				C129970B2C028F720052B655 /* BenchmarkView.swift in Sources */,
 				C14237C92BFDA381007EE40F /* CameraView.swift in Sources */,
+				C1E3300E2C02DD5100596145 /* TicTacToeView.swift in Sources */,
 				C142BF862BFECFFA0093D46C /* HumanDetector.swift in Sources */,
 				C11540F22C0131640050D630 /* HandPoseDetector.swift in Sources */,
 			);
